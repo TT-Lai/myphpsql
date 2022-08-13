@@ -50,7 +50,7 @@
                           -webkit-border-radius: 5px; 
                           border-radius: 5px; } 
                       </style> 
-                          <input type="reset" name="Reset" value="REWRITE"> 
+                          <input type="reset" name="reset" value="REWRITE"> 
                       <style> 
                           input { 
                               padding:5px 20px; 
@@ -67,7 +67,7 @@
             </div>
             <?php
             include('db.php'); 
-              if (isset($_POST['submit'])) 
+              if (isset($_POST['submit'] ) )
               {  
                 $no = $_POST['no']; 
                 $name = $_POST['name']; 

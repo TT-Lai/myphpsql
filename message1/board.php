@@ -66,7 +66,7 @@
      $name = $_POST['name']; 
      $subject = $_POST['subject']; 
      $content = $_POST['content']; 
-     $sql = "INSERT guestbook(name, subject, content, time) VALUES ('$name', '$subject', '$content', now())"; 
+     $sql = "INSERT INTO guestbook(name, subject, content, time) VALUES ('$name', '$subject', '$content', now())"; 
      if (!mysqli_query($conn, $sql)) 
      { 
        die(mysqli_error($conn)); 
@@ -76,7 +76,7 @@
        //若成功將留言存進資料庫，會自動跳轉到顯示留言的頁面 
        echo " 
           <script> 
-         setTimeout(function(){window.location.href='view.php?name=" . $name . "';},6500); 
+         setTimeout(function(){window.location.href='view.php?name=" . $name . "';},500); 
           </script>"; 
     
         } 

@@ -53,14 +53,16 @@ if (isset($_POST['submit']))
 {  
   $name = $_POST['name']; 
   $password = $_POST['password']; 
-  if ($name && $password) { 
+  if ($name && $password)//如果使用者名稱和密碼都不為空
+  { 
     $sql = "select * from user where name = '$name'"; 
     $result = mysqli_query($conn, $sql); 
-    $rows = mysqli_num_rows($result); 
-    if (!$rows) { //若這個username還未被使用過
-       $sql = "insert user(id,username,password) values (null,'$name','$password')"; 
-      mysqli_query($conn, $sql); 
-       if (!$result) 
+    $rows = mysqli_fetch_assoc($result); 
+     if (!$rows)      
+      { //若這個username還未被使用過rows
+       $sql = "INSERT INTO user(id,name,password) values (null,'$name','$password')"; 
+        mysqli_query($conn, $sql); 
+        if (!$result) 
        { 
         die('Error: ' . mysqli_error($conn)); 
       }
@@ -78,7 +80,7 @@ if (isset($_POST['submit']))
       echo '<div class="warning">The Username has already been used !</div>'; 
       echo " 
         <script>        
-        setTimeout(function(){window.location.href='signup.php';},1000); 
+        setTimeout(function(){window.location.href='register.php';},6000); 
         </script>"; 
     } 
   } 
@@ -87,7 +89,7 @@ if (isset($_POST['submit']))
     echo '<div class="warning">Incompleted form! </div>'; //以下為javascript語法，註冊成功後會自動跳轉到登入頁面 
     echo " 
     <script> 
-    setTimeout(function(){window.location.href='login.php';},2000); 
+    setTimeout(function(){window.location.href='index.php';},2000); 
     </script>"; 
   } 
 } 

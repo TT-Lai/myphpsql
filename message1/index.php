@@ -78,7 +78,7 @@ include('style.html');
     echo '<div class="warning">Incompleted form! </div>'; 
     echo " 
             <script> 
-            setTimeout(function(){window.location.href='board.php';},2000); 
+            setTimeout(function(){window.location.href='index.php';},2000); 
             </script>"; 
   } 
   mysqli_close($conn); 

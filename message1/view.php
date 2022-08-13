@@ -7,8 +7,10 @@
     <title>All messages</title>
 </head>
    <?php 
+ 
    include ('style.html'); 
    $name = $_GET['name']; 
+  
   ?> 
   <body> 
     <div class="flex-center position-ref full-height"> 
@@ -28,14 +30,13 @@
    </div> 
   <div class="note full-height"> 
   <?php 
+
   session_start(); 
   include ("db.php"); 
   $sql = "select * from guestbook"; 
   $result = mysqli_query($conn, $sql); 
   $_SESSION['name'] = $name = $_GET['name']; 
-  //從資料庫中撈留言紀錄並顯示出來
- 
-  while ($row = mysqli_fetch_assoc($result))
+   while ($row = mysqli_fetch_assoc($result)) //從資料庫中撈留言紀錄並顯示出來
    { 
     echo "<br>Visitor Name:" . $row['name']; 
     echo "<br>Subject:" . $row['subject']; 
