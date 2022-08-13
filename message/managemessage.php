@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=chrome">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>managemember</title>
+    <title>managemessage</title>
 </head>
 <body>
     <?php
+    if ($_SESSION['flag']='1')
+    {echo 'welcom you to login ROOT<br>';
+    echo "<a href =manage.php>back to the manager page</a>";
+}
+else{
+    echo 'you are not ROOT';
+    echo "<a href=index.php>back to the login page</a>";
+    die();
+}
     include('mydb.php');
-    // if ($_GET['del'])
-    // {
-    //     $a=$_GET['del'];
-    //     $s="delete from member where no=$a";
-    //     mysql_query($s);
-    //     echo 'delete successfully:'.mysql_affected_rows();
-    // }
+    if ($_GET['del'])
+     {
+         $a=$_GET['del'];
+         $s="delete from member where no=$a";
+        mysqli_query($conn,$s);
+       echo 'delete successfully:'.mysqli_affected_rows();
+     }
     $sql="SELECT m1.id,m1.content,m2.name,m1.mdate FROM message m1 join member m2 on m1.name=m2.no";
     $result=mysqli_query($conn,$sql);
-    echo '<br>total'.mysqli_num_rows($result).'member';
+    echo '<br>you have totally'.mysqli_num_rows($result).'messages';
     if (!$_GET['order']){
         echo "<table width=100% border=2 align=center cellpadding=0 cellspacing=0>";
         echo "<tr bgcolor=#3366FF>

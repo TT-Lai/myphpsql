@@ -1,6 +1,6 @@
 <?php
 include('mydb.php');
-
+if ($_POST[no]){
 
 $sql = "INSERT INTO message (name, content, mdate)
 VALUES('$_POST[no]', '$_POST[message]',sysdate())";
@@ -8,8 +8,10 @@ VALUES('$_POST[no]', '$_POST[message]',sysdate())";
 echo $sql;
 
  $result=mysqli_query($conn, $sql);//执行某个针对数据库的查询。
+}
  if (mysqli_affected_rows($conn))//返回前一次 MySQL 操作所影响的记录行数。mysqli_affected_rows(connection);
       echo 'add successfully<br>';
+      echo "<a href=index.php>back to the login page</a>";
     
 ?>
 
