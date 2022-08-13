@@ -53,7 +53,7 @@ include('style.html');
     $name = $_POST['name']; 
     $password = $_POST['password']; 
    
-    if ($name && $password)    
+    if ($name && $password) //如果使用者名稱和密碼都不為空   
     {      
     $sql = "select * from user where name = '$name' and password='$password'"; 
     $result = mysqli_query($conn, $sql); 
@@ -65,7 +65,7 @@ include('style.html');
       <script> 
       setTimeout(function(){window.location.href='view.php?name=" . $name . "';},6600); 
       </script>";       
-      exit; 
+     
     } 
     else 
     { 
