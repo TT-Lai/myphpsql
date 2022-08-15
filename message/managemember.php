@@ -7,15 +7,16 @@
     <title>managemember</title>
 </head>
 <body>
+<div class="content">
     <?php
     include('mydb.php');
-    // if ($_GET['del'])
-    // {
-    //     $a=$_GET['del'];
-    //     $s="delete from member where no=$a";
-    //     mysql_query($s);
-    //     echo 'delete successfully:'.mysql_affected_rows();
-    // }
+    if ($_GET['del'])
+     {
+         $a=$_GET['del'];
+         $s="delete from member where no=$a";
+        mysqli_query($conn,$s);
+       echo 'delete successfully:'.mysql_affected_rows();
+     }
     $sql="SELECT m1.id,m1.content,m2.name,m1.mdate FROM message m1 join member m2 on m1.name=m2.no";
     $result=mysqli_query($conn,$sql);
     echo '<br>total'.mysqli_num_rows($result).'member';
@@ -41,5 +42,6 @@
     
     echo "</table>";
     ?>
+</div>
 </body>
 </html>

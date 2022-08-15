@@ -63,13 +63,17 @@ include('style.html');
       echo '<div class="sucess">welcome! </div>'; 
       echo " 
       <script> 
-      setTimeout(function(){window.location.href='view.php?name=" . $name . "';},6600); 
+      setTimeout(function(){window.location.href='view.php?name=" . $name . "';},2600); 
       </script>";       
      
     } 
     else 
     { 
       echo '<div class="warning">Wrong Username or Password!</div>'; 
+      echo " 
+      <script> 
+      setTimeout(function(){window.location.href='index.php?name=" . $name . "';},2600); 
+      </script>";    
     } 
   } 
   else
