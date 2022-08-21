@@ -1,12 +1,10 @@
 <?php
-if ('root'==$_GET['account'])
-{ header('location:manage.php');}
 
 include('mydb.php');
 include('style.html'); 
 $account = $_GET['account']; //登入者
-$password = $_GET['password']; //登入者
-$sql="select * from member where account='$account' and password='$password'";
+//$password = $_GET['password']; //登入者
+$sql="select * from member where account='$account' ";
 
  $result=mysqli_query($conn, $sql);//执行某个针对数据库的查询。留言者
  $row=mysqli_fetch_array($result);//擷取留言者
@@ -24,10 +22,10 @@ $sql="select * from member where account='$account' and password='$password'";
                 <div class="top-right home"> 
                         <!-- //<a href="message.php?account=$_POST['account']">Message</a>  -->
                         <a href="index.php">Logout</a> 
-                        <!-- <a href="modifymessage_ac.php?account=<?= $row['account'] ?>">Modify Message</a> -->
+                        <!-- <a href="modifymember.php?account=<?= $row['account'] ?>">Modify Member</a> -->
                 </div>
             </div>  
-    <?php 
+    <!-- <?php 
     echo '<div class="content"> ';
     //echo '<div class="m-b-md">'; 
     echo "How are you? " . $row['account'] . '<br>Please,Leave the message';
@@ -35,8 +33,8 @@ $sql="select * from member where account='$account' and password='$password'";
    
 
    
-    ?>
-    <br>
+    ?> -->
+    <!-- <br>
     <div class='content'>
     <form name="form2" method="post" action="addmessage.php">
     <p>message content:</p>
@@ -45,11 +43,13 @@ $sql="select * from member where account='$account' and password='$password'";
     <input type="hidden" name="password" value=<?php echo "$row[password]";?>>
     <br>
     <input type="submit"  vlaue="send">
-    <input type="reset"  value="rewrite"></form>
+    <input type="reset"  value="rewrite"></form> -->
 </div>     
     <?php
     $sql="SELECT m1.id,m1.content,m2.name,m1.mdate FROM message m1 join member m2 on m1.account=m2.account where m2.account='$row[account]'";
     $result=mysqli_query($conn,$sql);
+    echo '<div class="content"> ';
+    echo '<div class="m-b-md">';
     echo '<br>You have totally'.mysqli_num_rows($result).'messages';
 
     if ($_GET['account'])
@@ -69,7 +69,7 @@ $sql="select * from member where account='$account' and password='$password'";
         <td>$row[1]</td>
         <td>$row[2]</td>
         <td>$row[3]</td>
-        <td><a href=modifymessage_id.php?id=$row[0]>Modify</a></td>
+        <td><a href=modifymessage_id.php?id=$row[0]>BACK</a></td>
         </tr>";
     }    
     echo "</table>";

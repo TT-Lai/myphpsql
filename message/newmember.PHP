@@ -10,7 +10,7 @@
 <body>       
  <div class="content"> 
      <div class="m-b-md" > 
-        <form name="form2" class="note1" action="addmember.php" method="post" enctype="multipart/form-data">
+        <form name="form2" class="note" action="addmember.php" method="post" enctype="multipart/form-data">
             <!-- <label for="file">文件名：</label> -->
                 會員姓名:
                 <input type="text" name="name" maxlength="20" size="20" ><br>                

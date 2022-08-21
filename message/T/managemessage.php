@@ -7,29 +7,30 @@
     <title>managemessage</title>
 </head>
 <body>
+<div class="content">
     <?php
-    if ($_SESSION['flag']='1')
+if ($_SESSION['flag']='1')
     {echo 'welcom you to login ROOT<br>';
-    echo "<a href =manage.php>back to the manager page</a>";
+    echo "<a href =manage.php>Back to the manager page</a>";
 }
 else{
     echo 'you are not ROOT';
-    echo "<a href=index.php>back to the login page</a>";
+    echo "<a href=index.php>Back to the login page</a>";
     die();
 }
-    include('mydb.php');
-    if ($_GET['del'])
+include('mydb.php');
+if ($_GET['del'])
      {
          $a=$_GET['del'];
          $s="delete from member where no=$a";
         mysqli_query($conn,$s);
-       echo 'delete successfully:'.mysqli_affected_rows();
+       echo 'Delete Successfully:'.mysqli_affected_rows($conn);
      }
-    $sql="SELECT m1.id,m1.content,m2.name,m1.mdate FROM message m1 join member m2 on m1.name=m2.no";
-    $result=mysqli_query($conn,$sql);
-    echo '<br>you have totally'.mysqli_num_rows($result).'messages';
-    if (!$_GET['order']){
-        echo "<table width=100% border=2 align=center cellpadding=0 cellspacing=0>";
+$sql="SELECT m1.id,m1.content,m2.name,m1.mdate FROM message m1 join member m2 on m1.account=m2.account";
+$result=mysqli_query($conn,$sql);
+echo '<br>you have totally'.mysqli_num_rows($result).'messages';
+    if ($_GET['del']){
+        echo "<table width=80% border=2 align=center cellpadding=0 cellspacing=0>";
         echo "<tr bgcolor=#3366FF>
             <td>message number</td>
             <td>message content</td>
@@ -50,5 +51,6 @@ else{
     
     echo "</table>";
     ?>
+    </div>
 </body>
 </html>

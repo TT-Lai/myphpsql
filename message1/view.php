@@ -35,10 +35,10 @@
   include ("db.php"); 
   $sql = "select * from guestbook"; 
   $result = mysqli_query($conn, $sql); 
-  $_SESSION['name'] = $name = $_GET['name']; 
+  $_SESSION['name'] = $name = $_GET['name']; //登入者名稱
    while ($row = mysqli_fetch_assoc($result)) //從資料庫中撈留言紀錄並顯示出來
    { 
-    echo "<br>Visitor Name:" . $row['name']; 
+    echo "<br>Visitor Name:" . $row['name']; //留言者名稱
     echo "<br>Subject:" . $row['subject']; 
     echo "<br>Content:" . nl2br($row['content']) . "<br>"; 
      if ($name == $row['name']) {  //若登入者名稱和留言者名稱一致，顯示出編輯和刪除的連結

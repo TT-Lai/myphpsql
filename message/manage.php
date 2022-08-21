@@ -12,8 +12,8 @@ include('style.html');
 <body>
 <div class="flex-center position-ref full-height"> 
     <div class="top-left home"> 
-    <a href="managemember.php">manage member documents</a>
-    <a href="message.php">manage message documents</a>
+    <a href="manager_ber.php">Manage Member Sheet</a>
+    <a href="manager_age.php">Manage Message Sheet</a>
     </div>
 </div>
 </body>

@@ -46,7 +46,7 @@ if ($name && $password)//如果使用者名稱和密碼都不為空
         echo '<div class="success">Sign up successfully !</div>'; 
         echo " 
         <script> 
-        setTimeout(function(){window.location.href='message.php?name=" . $name . "';},2000); 
+        setTimeout(function(){window.location.href='index.php?name=" . $name . "';},2000); 
         </script>"; 
         } 
     } 
