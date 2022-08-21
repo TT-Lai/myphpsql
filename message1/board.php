@@ -57,11 +57,7 @@
                   </div> 
         </body> 
  </html> 
- <?php 
-   if (!isset($_GET["name"]))
-   {echo "not exist";}
-   else{
-       echo $_GET["name"];}
+<?php
  //送出留言後會執行下面這段程式碼 
    if (isset($_POST['submit'])) 
      { 

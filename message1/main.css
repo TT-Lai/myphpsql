@@ -1,0 +1,59 @@
+.home-page-banner {
+    background-image: url("./imgs/015.jpg");
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+
+
+.home-playlist {
+    height: 360px;
+}
+
+.footer {
+    min-height: 280px
+}
+
+.circle {
+    border-radius: 50%
+}
+
+
+
+@media (min-width: 576px) { 
+    .home-playlist {
+        height:190px;
+        }
+}
+ 
+
+@media (min-width: 768px) { 
+    .home-playlist {
+        height:258px;
+    }
+ }
+
+
+@media (min-width: 992px) { 
+    .home-playlist {
+        height:348px;
+    }
+ }
+
+
+@media (min-width: 1200px) { 
+    .home-playlist {
+        height:416px;
+    }
+ }
+
+
+@media (min-width: 1400px) { 
+    .home-playlist {
+        height:482px;
+    }
+ }
+    
+
