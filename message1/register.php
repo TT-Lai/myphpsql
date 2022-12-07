@@ -60,7 +60,7 @@ if (isset($_POST['submit']))
     $rows = mysqli_fetch_assoc($result); 
      if (!$rows)      //若這個username還未被使用過rows
       { 
-       $sql = "INSERT INTO user(id,name,password) values (null,'$name','$password')"; 
+       $sql = "INSERT INTO user(name,password) values ('$name','$password')"; 
         mysqli_query($conn, $sql); 
         if (!$result) 
        { 

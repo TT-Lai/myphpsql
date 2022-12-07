@@ -66,7 +66,7 @@
      $name = $_POST['name']; 
      $subject = $_POST['subject']; 
      $content = $_POST['content']; 
-     $sql = "INSERT INTO guestbook(name, subject, content, time) VALUES ('$name', '$subject', '$content', now())"; 
+     $sql = "INSERT INTO guestbook(name, subject, content, time) VALUES ('$name', '$subject', '$content', Now())"; 
      if (!mysqli_query($conn, $sql)) 
      { 
        die(mysqli_error($conn)); 
