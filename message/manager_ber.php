@@ -37,7 +37,7 @@
         <td>$row[3]</td>
         <td>$row[4]</td>
         <td>$row[5]</td>
-        <td>$row[6]</td>
+        <td><img src=./upload/$row[6] width=120 height=122/></td>
         <td>$row[7]</td>
         <td><a href=manager_ber.php?del=$row[0]>Delete</a></td>
         <td><a href=modifymember.php?account=$row[2]>Modify</a></td>

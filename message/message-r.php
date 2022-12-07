@@ -20,9 +20,9 @@ $sql="select * from member where account='$account' ";
 <body>
      <div class="flex-center position-ref half-height "> 
                 <div class="top-right home"> 
-                        <!-- //<a href="message.php?account=$_POST['account']">Message</a>  -->
+                        <a href="view.php?account=<?= $row['account'] ?>">Message</a>
                         <a href="index.php">Logout</a> 
-                        <!-- <a href="modifymember.php?account=<?= $row['account'] ?>">Modify Member</a> -->
+                        <a href="modifymember.php?account=<?= $row['account'] ?>">Modify Member</a> 
                 </div>
             </div>  
     <!-- <?php 
@@ -46,7 +46,7 @@ $sql="select * from member where account='$account' ";
     <input type="reset"  value="rewrite"></form> -->
 </div>     
     <?php
-    $sql="SELECT m1.id,m1.content,m2.name,m1.mdate FROM message m1 join member m2 on m1.account=m2.account where m2.account='$row[account]'";
+    $sql="SELECT m1.id,m1.subject,m1.content,m2.name,m1.mdate FROM message m1 join member m2 on m1.account=m2.account where m2.account='$row[account]'";
     $result=mysqli_query($conn,$sql);
     echo '<div class="content"> ';
     echo '<div class="m-b-md">';
@@ -57,6 +57,7 @@ $sql="select * from member where account='$account' ";
         echo "<table width=70% border=2 align=center cellpadding=0 cellspacing=0 >";
         echo "<tr bgcolor=#004466 style='color:#FFFFFF' align=center font-weight:600 >
             <td >message number</td>
+            <td >message subject</td>
             <td >message content</td>
             <td>message member</td>
             <td>message date</td>
@@ -69,6 +70,7 @@ $sql="select * from member where account='$account' ";
         <td>$row[1]</td>
         <td>$row[2]</td>
         <td>$row[3]</td>
+        <td>$row[4]</td>
         <td><a href=modifymessage_id.php?id=$row[0]>BACK</a></td>
         </tr>";
     }    

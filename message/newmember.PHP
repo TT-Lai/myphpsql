@@ -1,7 +1,7 @@
 <html>
 <head>
-<meta charset="utf-8">
-<title>newmember</title>
+    <meta charset="utf-8">
+        <title>newmember</title>
 </head>
 <?php 
   include('style.html'); 

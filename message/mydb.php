@@ -13,10 +13,17 @@ $dbname = "message";
 $conn = new mysqli($servername, $username, $password, $dbname);
  
 // 检测连接
-if ($conn->connect_error) {
-    die("connection失败: " . $conn->connect_error);
-} 
-echo "connection成功";
+
+        // if(!$conn) {
+        //         echo "MySQL 伺服器連結失敗";}
+        // else {
+        //         echo "MySQL 伺服器連結成功"; }
+        // mysqli_close($conn);
+
+     if ($conn->connect_error) {
+         die("connection失败: " . $conn->connect_error);
+    } 
+     
 //$sql = "CREATE DATABASE myDB";
 //if ($conn->query($sql) === TRUE) {
 //    echo "数据库创建成功";
@@ -32,4 +39,19 @@ echo "connection成功";
 //    mysql_query("SET NAMES utf8");
 //if ( ! mysql_select_db('message'))
 //    die("無法使用資料庫");
+    // ?php
+
+    //         $db_link = mysqli_connect(“localhost”, “root”, “12345678”);
+
+    //         if(!$db_link) {
+
+    //                 echo “MySQL 伺服器連結失敗”;}
+
+    //         else {
+
+    //                 echo “MySQL 伺服器連結成功”; }
+
+    //         mysqli_close($db_link);
+
+    // 
 ?>

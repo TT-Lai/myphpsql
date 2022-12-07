@@ -30,7 +30,9 @@ include('style.html');
       echo "<input type='hidden' name='id' value='$rs[id]'>";
       echo "<input type='hidden' name='account' value='$rs[account]'>";
       echo "<p>MessageNumber</p>";
-      echo "<input type='text' name='subject' value='$rs[id]'>";
+      echo "<input type='text' name='id' value='$rs[id]'>";
+      echo "<p>SUBJECT</p>";
+      echo "<p><input type='text' name='subject' value='$rs[subject]'>";
       echo "<p>CONTENT</p> ";
       echo "<textarea style= 'font-family: Nunito, sans-serif; 
       font-size:20px; width:550px; height:100px; background:#FFCCCC';
@@ -65,11 +67,12 @@ include('style.html');
             if (isset($_POST['submit'] ) )
             {  
               $id = $_POST['id']; 
-              $account = $_POST['account']; 
+              $account = $_POST['account'];
+              $subject = $_POST['subject'];
               $content = $_POST['content']; 
             
             
-              $sql = "UPDATE message SET id='$id', content='$content' where id='$id'"; 
+              $sql = "UPDATE message SET id='$id',subject='$subject', content='$content' where id='$id'";
               if (!mysqli_query($conn, $sql)) 
               { 
                 die(mysqli_error($conn)); 
@@ -80,7 +83,7 @@ include('style.html');
                   " 
                     <script>
                   setTimeout(function()
-                    {window.location.href='message-r.php?account=" . $account . "';},200); 
+                    {window.location.href='message-r.php?account=" . $account . "';},200);
                     </script> ";
                  //setTimeout(要执行的代码, 等待的毫秒数)
                  //setTimeout(JavaScript 函数, 等待的毫秒数)

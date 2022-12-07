@@ -20,6 +20,7 @@
         echo "<tr bgcolor=#004466 style='color:#FFFFFF' align=center font-weight:600>
             <td> ID</td>
             <td> Account</td>
+            <td> subject</td>
             <td> Content</td>
             <td> Mdate</td>
             <td>Del</td>
@@ -31,6 +32,7 @@
         <td>$row[1]</td>
         <td>$row[2]</td>
         <td>$row[3]</td>
+        <td>$row[4]</td>
         <td><a href=manager_age.php?del=$row[0]>Delete</a></td>
         <td><a href=modifymessage_id.php?id=$row[0]>Modify</a></td>
         </tr>";

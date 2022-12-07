@@ -1,16 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "72340aikido";
-$dbname = "message";
- 
-// 创建连接
-$conn = new mysqli($servername, $username, $password, $dbname);
-// 检测连接
-if ($conn->connect_error) {
-    die("连接失败: " . $conn->connect_error);
-} 
-
+  $servername = "localhost";
+  $username = "root";
+  $password = "72340aikido";
+  $dbname = "message";
+  
+  // 创建连接
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // 检测连接
+  if ($conn->connect_error) {
+      die("连接失败: " . $conn->connect_error);
+  } 
+  echo "connection成功1";
+//include('mydb.php');
 // if ($_FILES["gif"]["error"] > 0)
 // {
 //     echo "错误：" . $_FILES["gif"]["error"] . "<br>";
@@ -23,19 +24,28 @@ if ($conn->connect_error) {
 //     echo "文件临时存储的位置: " . $_FILES["gif"]["tmp_name"];
 // }
 include('style.html'); 
-$name = $_POST['name']; 
+ $name = $_POST['name']; 
  $password = $_POST['password']; 
- $a=$_FILES["gif"]["tmp_name"];
+ $upload_dir='./upload/';
+ if ($_FILES['gif']['error'] == UPLOAD_ERR_OK){
+  move_uploaded_file($_FILES['gif']['tmp_name'],$upload_dir . $_FILES['gif']['name']);
+  echo '上傳成功';
+ }
+ else{
+  echo '上傳失敗';
+ }
+ $a = $_FILES['gif']['name'];
+
 if ($name && $password)//如果使用者名稱和密碼都不為空
-  { 
-    $sql = "select * from member where name = '$name'"; 
-    $result = mysqli_query($conn, $sql); 
-    $rows = mysqli_fetch_assoc($result); 
-     if (!$rows)      //若這個username還未被使用過rows
-      { 
-       $sql = "INSERT INTO member(name, account, password, tel, address,gif,memdate) 
+  { $sql = "select * from member where name = '$name'"; 
+    $result = mysqli_query($conn, $sql); //傳送 SQL 查詢語句。傳回執行結果 $result。
+    $rows = mysqli_fetch_assoc($result); //一次取得一筆(列)資料，使用欄位名稱來取得欄位內容，並將游標往下移。
+      if (!$rows)      //若這個username還未被使用過rows
+        { 
+          $sql = "INSERT INTO member(name,account,password,tel,address,gif,memdate) 
        values ('$_POST[name]', '$_POST[account]','$_POST[password]', '$_POST[tel]', '$_POST[address]','$a',sysdate())"; 
-       move_uploaded_file($_FILES["gif"]["tmp_name"], "upload/" . $_FILES["gif"]["name"]);
+                echo $sql;
+                
         mysqli_query($conn, $sql); 
         if (!$result) 
        { 
