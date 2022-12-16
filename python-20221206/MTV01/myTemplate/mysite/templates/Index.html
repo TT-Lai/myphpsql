@@ -1,0 +1,34 @@
+ {% extends "base.html" %}
+ {% block title %}電視新聞直播 {% endblock %}
+ {% block tvname %} {{tv.name}} {% endblock %}
+ {% block menu %}
+ <ul class='nav navbar-nav'>
+    <li class='active'><a href='/'>Home</a></li>
+    {% for t in tv_list %}
+    <li>
+        <a href='{% url 'tv-url' forloop.counter0 %}'>
+            {{ t.name }}
+        </a>
+    </li>  
+    {% endfor %}
+   <!--- <li><a href='{% url 'tv-url' 0 %}'>Sky News</a></li>
+    <li><a href='{% url 'tv-url' 1 %}'>NBC News</a></li>
+    <li><a href='{% url 'tv-url' 2 %}'>Fox News</a></li>
+    <li><a href='{% url 'tv-url' 3 %}'>Times News</a></li>
+    <li><a href='{% url 'tv-url' 4 %}'>TVBS</a></li>
+    <li><a href='{% url 'tv-url' 5 %}'>中視</a></li>
+    <li><a href='{% url 'tv-url' 6 %}'>冰雪奇緣2</a></li>
+    <li><a href='{% url 'tv-url' 7 %}'>東森</a></li>
+    <li><a href='{% url 'tv-url' 8 %}'>民視</a></li>
+    <li><a href='{% url 'tv-url' 9 %}'>台視</a></li>
+    <li><a href='{% url 'tv-url' 10 %}'>華視</a></li>
+    <li><a href='{% url 'tv-url' 11 %}'>TVBS</a></li>--->
+ </ul>
+ {% endblock %}
+ {% block content %}
+    <div class='conatiner'>
+        <div id='tvcode' align='center'>
+            <iframe width="850" height="500" src="https://www.youtube.com/embed/{{tv.tvcode}}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+{% endblock %}
