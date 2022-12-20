@@ -62,20 +62,19 @@
             <div class='panel-body'>{{ p.message | linebreaks }}</div>
             <div class='panel-footer' align='right'>
             <i><small>{{ p.pub_time }}</small></i>
-            <script>
-                function go_delete(id){
-                var user_pass = document.getElementById('user_pass').value;
-                if (user_pass != "") {
-                    var usr = '/' + id + '/' + user_pass;
-                    window.location = usr;
-                }
-                else{
-                    alert("請填刪除密碼");
+            <span class="glyphicon glyphicon-trash" onclick='go_delete({{ p.id }})'></span>            
+                <script>
+                    function go_delete(id){
+                    var user_pass = document.getElementById('user_pass').value;
+                    if (user_pass != "") {
+                        var usr = '/' + id + '/' + user_pass;
+                        window.location = usr;
                     }
-                }
-            </script>
-            <span class="glyphicon glyphicon-trash" onclick='go_delete({{ p.id }})'></span>
-
+                    else{
+                        alert("請填刪除密碼");
+                        }
+                    }
+                </script>
            </div>
         </div>
     </div>
@@ -134,4 +133,5 @@
     <h3>目前沒有庫存的手機可以賣，真抱歉</h3>
     {% endfor %}--->
 </div>
+
 {% endblock %}
