@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 def index(request, pid=None, del_pass=None):
     #template = get_template('index.html')
-    posts = models.Post.objects.filter(enabled=True).order_by('-pub_time')[:30]
+    posts = models.Post.objects.filter(enabled=True).order_by('-pub_time')[:130]
     moods = models.Mood.objects.all()
     try:
         user_id = request.GET['user_id']
@@ -26,11 +26,11 @@ def index(request, pid=None, del_pass=None):
             post = models.Post.objects.get(id=pid)
         except:
             post = None
-        if post:
-            if post.del_pass == del_pass:
+    if post:
+        if post.del_pass == del_pass:
                 post.delete()
                 message = "資料刪除成功"
-            else:
+        else:
                 message = "密碼錯誤"
     elif user_id != None:
         mood = models.Mood.objects.get(status=user_mood)
